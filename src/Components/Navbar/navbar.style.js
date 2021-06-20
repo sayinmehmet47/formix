@@ -8,7 +8,9 @@ export const Nav = styled.nav`
   justify-content: space-between;
   padding: 0.5rem calc((100vw - 1000px) / 2);
   z-index: 10;
-  height:${props=>(props.open?"220px":"60px")}
+  height:${props=>(props.open?"220px":"60px")};
+  padding-left:${props=>(props.open?"40%":"")};
+  
  
 `;
 
