@@ -1,10 +1,27 @@
-import React from 'react';
-import { Nav, NavLink } from './navbar.style';
-
+import React, { useState } from 'react';
+import {
+  Nav,
+  NavLink,
+  NavMenu,
+  Bars,
+  NavBtn,
+  NavBtnLink,
+} from './navbar.style';
 export const Navbar = () => {
+  const [open, setOpen] = useState(false);
+  
   return (
-    <Nav>
-      <NavLink to="/form">Form</NavLink>
+    <Nav open={open}>
+      <Bars onClick={() =>setOpen(!open)} />
+      <NavMenu open={open}>
+        <NavLink to="/form">Form</NavLink>
+        <NavLink to="/services">Services</NavLink>
+        <NavLink to="/contact-us">Contact Us</NavLink>
+        <NavLink to="/sign-up">Sign Up</NavLink>
+      </NavMenu>
+      <NavBtn>
+        <NavBtnLink to="/signin">Sign In</NavBtnLink>
+      </NavBtn>
     </Nav>
   );
 };

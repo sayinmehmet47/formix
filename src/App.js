@@ -12,21 +12,7 @@ export const App = () => {
           <Form />
         </Route>
 
-        {/* <Route path="/formik">
-                
-            </Route>
-       
-
-            <Route path="/favorites">
-              <Favorites />
-            </Route>
-
-            <Route path="/cars/:id">
-              <CarDetails />
-            </Route>
-            <Route path="*">
-              <NotFound />
-            </Route> */}
+     
       </Switch>
     </Router>
   );
