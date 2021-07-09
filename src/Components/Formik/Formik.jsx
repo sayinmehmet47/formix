@@ -2,32 +2,22 @@ import React from 'react';
 
 import { Formik } from 'formik';
 import * as Yup from 'yup';
-
+import { ValidationSchema2} from '../../Validation/ValidationSchema';
 export const Form = () => {
   return (
     <div>
       <Formik
         initialValues={{ firstName: '', lastName: '', email: '', agree: '' }}
-        validationSchema={Yup.object({
-          firstName: Yup.string()
-            .min(2, 'En az iki karakter olmali')
-            .required('Required'),
-          lastName: Yup.string()
-            .min(2, 'En az iki karakter olmali')
-            .required('Required'),
-          email: Yup.string()
-            .email('Invalid email address')
-            .required('Required'),
-          agree: Yup.bool()
-            .oneOf([true], 'Koşulları kabul etmelisiniz')
-            .required('kasullari kabul etmelisiniz'),
-        })}
+        validationSchema={Yup.object(
+            ValidationSchema2
+        )}
         onSubmit={(values, { setSubmitting }) => {
           setTimeout(() => {
             alert(JSON.stringify(values, null, 2));
             setSubmitting(false);
           }, 400);
         }}
+       
       >
         {(formik) => (
           <form onSubmit={formik.handleSubmit}>
