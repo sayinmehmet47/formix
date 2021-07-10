@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import {
   Nav,
   NavLink,
@@ -10,6 +10,14 @@ import {
 export const Navbar = () => {
   const [open, setOpen] = useState(false);
 
+  useEffect(() => {
+    window.addEventListener('resize', () => {
+      const myWidth = window.innerWidth;
+      myWidth > 628 ? setOpen(false) : setOpen(true);
+      myWidth < 500 ? setOpen(true) : setOpen(false);
+    });
+  }, []);
+
   return (
     <Nav open={open}>
       <Bars onClick={() => setOpen(!open)} />
@@ -20,6 +28,8 @@ export const Navbar = () => {
         <NavLink to="/sign-up">Sign Up</NavLink>
         <NavLink to="/sorting">Sorting</NavLink>
         <NavLink to="/exporting">Export</NavLink>
+        <NavLink to="/redux">Redux</NavLink>
+        <NavLink to="/firebase">Firebase</NavLink>
       </NavMenu>
       <NavBtn>
         <NavBtnLink to="/signin">Sign In</NavBtnLink>

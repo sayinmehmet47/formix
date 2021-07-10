@@ -8,10 +8,9 @@ export const Nav = styled.nav`
   justify-content: space-between;
   padding: 0.5rem calc((100vw - 1000px) / 2);
   z-index: 10;
-  height:${props=>(props.open?"220px":"60px")};
-  padding-left:${props=>(props.open?"40%":"")};
-  
- 
+  height: ${(props) => (props.open ? '220px' : '60px')};
+  padding-left: ${(props) => (props.open ? '40%' : '')};
+  transition: all 0.5s ease-in-out;
 `;
 
 export const NavLink = styled(Link)`
@@ -30,11 +29,11 @@ export const NavLink = styled(Link)`
 export const Bars = styled(FaBars)`
   display: none;
   color: #fff;
- 
+
   @media screen and (max-width: 768px) {
     &.active {
-    color: red;
-  }
+      color: red;
+    }
     display: block;
     position: absolute;
     top: 0;
@@ -51,10 +50,11 @@ export const NavMenu = styled.div`
   margin-right: -24px;
 
   @media screen and (max-width: 768px) {
-    display: ${props => (props.open ? "flex" : "none")};
-    flex-direction: ${props => (props.open ? "column" : "")};
+    display: ${(props) => (props.open ? 'flex' : 'none')};
+    flex-direction: ${(props) => (props.open ? 'column' : '')};
   }
 `;
+
 export const NavBtn = styled.nav`
   display: flex;
   align-items: center;

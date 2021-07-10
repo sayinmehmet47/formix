@@ -11,6 +11,13 @@ const onDownload = async () => {
   var lines = doc.splitTextToSize(paragraph, pdfInMM - lMargin - rMargin);
   doc.text(lMargin, 20, lines);
   doc.save('example.pdf');
+
+  let mySet = new Set();
+  mySet.add(8).add(7).add(1);
+  for (let v of mySet.values()) {
+    console.log(v);
+    console.log(mySet.has(1) + v);
+  }
 };
 
 export const Exporting = () => {
