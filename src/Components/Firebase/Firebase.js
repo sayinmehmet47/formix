@@ -39,6 +39,13 @@ export const Firebase = () => {
     db.collection('things').doc(id).delete();
   };
 
+  const edit = (id) => {
+    db.collection('things').doc(id).update({
+      name: name,
+      surname: surname,
+    });
+  };
+
   return (
     <div>
       {user ? (
@@ -70,6 +77,7 @@ export const Firebase = () => {
               <div style={{ display: 'flex' }}>
                 <p>{person.data.name}</p>
                 <button onClick={() => del(person.id)}>delete</button>
+                <button onClick={() => edit(person.id)}>Guncelle</button>
               </div>
             ) : (
               ''
